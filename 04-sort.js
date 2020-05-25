@@ -59,15 +59,18 @@ const objsArrs = [
 //Напишите функцию, которая из элементов массива соберет и вернёт
 //строку, основываясь на index каждой буквы. Например:
 //`[{char:"H",index:0}, {char:"i",index: 1}, {char:"!",index:2}] → “Hi!”`
-function elementArr(){
-	let stringArr;
-	objsArrs.forEach(function(item, index, objsArrs) {
-	for(i = 0; i < objsArrs.length; i++){
-		stringArr = item;
-		console.log(stringArr);
-		return stringArr;
-	}
-	
+objsArrs.sort((a,b)=> {
+if (a.index > b.index){
+	return 1;
+}
+if (a.index < b.index){
+	return -1;
+}
+return 0;
+});
+
+const newArry = objsArrs.map(names => {
+    return names.char;
+
 })
-};
-elementArr(objsArrs);
+console.log(newArry.toString());
